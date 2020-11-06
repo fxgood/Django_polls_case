@@ -1,0 +1,14 @@
+{% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+        {#这里的detial是 polls.urls中path里定义的name#}
+        {#这里的polls:是polls.urls上方的app_name#}
+
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+<br>
+<h1>我的名字叫{{name }}</h1>
